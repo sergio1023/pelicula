@@ -2,16 +2,6 @@
 
 $cookie = "no";
 
-setcookie("cookie",$cookie);
-
-if (isset($_POST['acepto']) &&  $_POST['acepto'] == 'acepto') {
-  $cookie = "si";
-}else{
-
-  $cookie = "no";
-
-}
-
 print_r($_COOKIE);
 
 print_r($_POST);
@@ -96,8 +86,8 @@ print_r($_POST);
 <footer class="footer mt-auto py-3 bg-light">
   <div class="container">
 
-  <?php if (isset($_COOKIE['cookie']) && $_COOKIE['cookie'] == 'si'){ ?>
-  
+  <?php if (isset($_POST['acepto'])) {?>
+    <?php $cookie = "si"; ?>
     <?php }else { ?>
   <span class="text-muted">Debes aceptar nuestra política de cookies.</span>  
     <form action="index.php" method="post">
@@ -105,9 +95,10 @@ print_r($_POST);
     </form>
 <?php } ?>
     
+  <?php setcookie("acepto", $cookie); ?>
     
   </div>
 </footer>  
-    <script src="/media/userman/HD-Sergio/Aplicaciones Web/iaw-programación/pelicula/src/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
       </body>
 </html>
