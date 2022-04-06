@@ -88,6 +88,7 @@ print_r($_POST);
 
   <?php if (isset($_POST['acepto'])) {?>
     <?php $cookie = "si"; ?>
+    <b><h5>Has aceptado las cookies</h5></b>
     <?php }else { ?>
   <span class="text-muted">Debes aceptar nuestra política de cookies.</span>  
     <form action="index.php" method="post">
