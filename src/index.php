@@ -1,3 +1,9 @@
+<?php
+include('acceso_datos.php');
+
+$datos = $conexion_bd->query('SELECT * FROM peliculas');
+
+?>
 <!doctype html>
 <html lang="en" class="h-100">
   <head>
@@ -41,9 +47,29 @@
 <!-- Begin page content -->
 <main class="flex-shrink-0">
   <div class="container">
-    <h1 class="mt-5">Sticky footer with fixed navbar</h1>
-    <p class="lead">Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code class="small">padding-top: 60px;</code> on the <code class="small">main &gt; .container</code>.</p>
-    <p>Back to <a href="../examples/sticky-footer/">the default sticky footer</a> minus the navbar.</p>
+  <h1>Próximas Películas</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Título</th>
+                    <th>Duración</th>
+                    <th>Carátula</th>
+                    <th>Tráiler</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($datos as $fila) { ?>
+                <tr>
+                    <td><?=$fila['id']?></td>
+                    <td><?=$fila['titulo']?></td>
+                    <td><?=$fila['duracion']?></td>
+                    <td><?=$fila['caratula']?></td>
+                    <td><?=$fila['trailer']?></td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
   </div>
 </main>
 
