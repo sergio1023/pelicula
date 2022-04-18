@@ -54,6 +54,7 @@ $datos = $conexion_bd->query('SELECT * FROM peliculas');
                     <th>Id</th>
                     <th>Título</th>
                     <th>Duración</th>
+                    <th>Descripción</th>
                     <th>Carátula</th>
                     <th>Tráiler</th>
                 </tr>
@@ -64,8 +65,9 @@ $datos = $conexion_bd->query('SELECT * FROM peliculas');
                     <td><?=$fila['id']?></td>
                     <td><?=$fila['titulo']?></td>
                     <td><?=$fila['duracion']?></td>
-                    <td><?=$fila['caratula']?></td>
-                    <td><?=$fila['trailer']?></td>
+                    <td><?=$fila['descripcion']?></td>
+                    <td><a href="<?=$fila['caratula']?>"><?=$fila['titulo']?></a></td>
+                    <td><a href="<?=$fila['trailer']?>">Click para ver el tráiler</a></td>
                 </tr>
                 <?php } ?>
             </tbody>
